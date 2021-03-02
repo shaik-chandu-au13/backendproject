@@ -4,7 +4,7 @@ const app = express();
 const db = require('./config/database');
 const bodyParser = require('body-parser');
 const bcrypt = require('bcryptjs');
-port = process.env.PORT || 8080;
+port = process.env.PORT || 5000;
 const User = require('./model/UserSchema');
 const cors = require('cors')
 app.use(cors())
