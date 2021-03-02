@@ -4,8 +4,10 @@ const app = express();
 const db = require('./config/database');
 const bodyParser = require('body-parser');
 const bcrypt = require('bcryptjs');
-port = process.env.PORT || 8080
+port = process.env.PORT || 8080;
 const User = require('./model/UserSchema');
+const cors = require('cors')
+app.use(cors())
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, "/")));
@@ -36,6 +38,9 @@ app.get('/users',(req,res)=>{
         res.status(200).send(user)
 
     })
+})
+app.get("/",(req,res)=>{
+    res.send("all okay")
 })
 app.listen(port,()=>{
     console.log(`listening on ${port}`);
